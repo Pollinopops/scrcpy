@@ -369,8 +369,8 @@ sc_audio_player_frame_sink_open(struct sc_frame_sink *sink,
         .userdata = ap,
     };
     SDL_AudioSpec obtained;
-
-    ap->device = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);
+    ap->device = SDL_OpenAudioDevice("M8 Analog Stereo", 0, &desired, &obtained, 0);
+//    ap->device = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);
     if (!ap->device) {
         LOGE("Could not open audio device: %s", SDL_GetError());
         return false;
